@@ -8,6 +8,8 @@ User=__APP__
 Group=__APP__
 WorkingDirectory=__INSTALL_DIR__/
 
+# Node.js from the [resources.nodejs] resource (v20 via `n`)
+Environment=PATH=__PATH_WITH_NODEJS__
 # Internal reverse-proxy port assigned by YunoHost
 Environment=PORT=__PORT__
 Environment=HOST=127.0.0.1
@@ -18,7 +20,7 @@ Environment=SSO_MODE=auto
 # Per-learner JSON profiles live here (survives upgrades)
 Environment=DATA_DIR=__DATA_DIR__
 
-ExecStart=/usr/bin/node __INSTALL_DIR__/server/index.mjs
+ExecStart=__NODEJS_DIR__/node __INSTALL_DIR__/server/index.mjs
 
 StandardOutput=append:/var/log/__APP__/__APP__.log
 StandardError=inherit

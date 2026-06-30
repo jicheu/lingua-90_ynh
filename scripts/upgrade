@@ -32,13 +32,8 @@ ynh_script_progression "Rebuilding the web app... this can take a few minutes."
 api_base="$(_api_base_for_path "$path")"
 
 pushd "$install_dir"
-    ynh_hide_warnings sudo -u "$app" env \
-        PATH="$PATH" HOME="$install_dir" npm_config_cache="$install_dir/.npm" \
-        npm ci --include=dev
-
-    ynh_hide_warnings sudo -u "$app" env \
-        PATH="$PATH" HOME="$install_dir" npm_config_cache="$install_dir/.npm" \
-        VITE_API_URL="$api_base" npm run build
+    ynh_hide_warnings ynh_exec_as_app npm ci --include=dev
+    ynh_hide_warnings ynh_exec_as_app env VITE_API_URL="$api_base" npm run build
 
     ynh_safe_rm "$install_dir/node_modules"
     ynh_safe_rm "$install_dir/.npm"

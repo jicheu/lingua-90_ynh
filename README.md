@@ -1,12 +1,13 @@
 # Lingua 90 — YunoHost package
 
 This folder is a complete [YunoHost](https://yunohost.org) app package
-(packaging format v2, helpers 2.1, targeting **YunoHost ≥ 12.1 / Debian Trixie**)
-for the Lingua 90 language-learning app.
+(packaging format v2, helpers 2.1, targeting **YunoHost ≥ 12.1**, Debian
+Bookworm or Trixie) for the Lingua 90 language-learning app.
 
 It installs the zero-dependency Node server (`server/index.mjs`), which serves
 the built static site **and** a tiny file-per-learner profile API, behind
-YunoHost's NGINX + SSO.
+YunoHost's NGINX + SSO. Node.js 20 is provided by YunoHost's `nodejs` resource
+(via `n`), independent of the Debian version.
 
 ## What it sets up
 

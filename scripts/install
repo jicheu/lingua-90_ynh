@@ -23,16 +23,12 @@ ynh_script_progression "Building the web app (npm install + build)... this can t
 
 # The runtime server (server/index.mjs) has ZERO dependencies, so once the
 # static site is built we drop node_modules entirely to keep the install small.
+# Node (v20, from the nodejs resource) is already on PATH for ynh_exec_as_app.
 api_base="$(_api_base_for_path "$path")"
 
 pushd "$install_dir"
-    ynh_hide_warnings sudo -u "$app" env \
-        PATH="$PATH" HOME="$install_dir" npm_config_cache="$install_dir/.npm" \
-        npm ci --include=dev
-
-    ynh_hide_warnings sudo -u "$app" env \
-        PATH="$PATH" HOME="$install_dir" npm_config_cache="$install_dir/.npm" \
-        VITE_API_URL="$api_base" npm run build
+    ynh_hide_warnings ynh_exec_as_app npm ci --include=dev
+    ynh_hide_warnings ynh_exec_as_app env VITE_API_URL="$api_base" npm run build
 
     # Built site is in dist/; the source toolchain is no longer needed at runtime.
     ynh_safe_rm "$install_dir/node_modules"
