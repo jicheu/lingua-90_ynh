@@ -7,7 +7,7 @@ name = "Lingua 90"
 description.en = "Offline-friendly 90-day language course with per-user progress and settings"
 description.fr = "Cours de langue de 90 jours, hors-ligne, avec progression et réglages par utilisateur"
 
-version = "0.1.0~ynh2"
+version = "0.1.0~ynh3"
 
 maintainers = ["jcverdie"]
 

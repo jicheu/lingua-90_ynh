@@ -33,7 +33,8 @@ NoNewPrivileges=yes
 PrivateTmp=yes
 PrivateDevices=yes
 ProtectSystem=strict
-ProtectHome=yes
+# NB: do NOT use ProtectHome=yes — the data dir is /home/yunohost.app/__APP__,
+# which ProtectHome would make inaccessible (EACCES on the profiles dir).
 ReadWritePaths=__DATA_DIR__ /var/log/__APP__
 RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
 RestrictNamespaces=yes
