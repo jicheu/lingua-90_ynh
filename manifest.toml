@@ -7,7 +7,7 @@ name = "Lingua 90"
 description.en = "Offline-friendly 90-day language course with per-user progress and settings"
 description.fr = "Cours de langue de 90 jours, hors-ligne, avec progression et réglages par utilisateur"
 
-version = "0.2.0~ynh1"
+version = "0.3.0~ynh1"
 
 maintainers = ["jcverdie"]
 
@@ -55,8 +55,8 @@ ram.runtime = "100M"
     # you based on the latest git tag.
     #
     #   sha256:  curl -sL <url> | sha256sum
-    url = "https://github.com/jicheu/lingua-90/archive/refs/tags/v0.2.0.tar.gz"
-    sha256 = "8266c63c3487a72d9a775ff2028ce4bb502b6db7b4ca9a05b53fba4c7f3b361e"
+    url = "https://github.com/jicheu/lingua-90/archive/refs/tags/v0.3.0.tar.gz"
+    sha256 = "eb3c620c09f7ac9756f366c7972641ddf9132c82a5188241ad00ded04021f6e5"
     autoupdate.strategy = "latest_github_tag"
 
     [resources.system_user]
